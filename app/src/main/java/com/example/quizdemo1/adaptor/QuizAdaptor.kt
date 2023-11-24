@@ -14,6 +14,7 @@ import com.example.quizdemo1.R
 import com.example.quizdemo1.models.OptionQuiz
 import com.example.quizdemo1.models.Quiz
 import com.example.quizdemo1.ui.QuestionActivity
+import com.example.quizdemo1.ui.SubCategoryActivity
 
 class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick: ((Int) -> Unit) // Add this parameter
 ) : RecyclerView.Adapter<QuizAdaptor.QuizViewHolder>() {
@@ -37,6 +38,7 @@ class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick:
         var iconView: ImageView = itemView.findViewById(R.id.mathematicsIcon)
         var cardContainer: ConstraintLayout = itemView.findViewById(R.id.cardView)
 
+
         init {
             itemView.setOnClickListener {
                 var subCategoryRecyclerView: RecyclerView = itemView.findViewById(R.id.subCategoryRecyclerView)
@@ -51,13 +53,12 @@ class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick:
                 }
             }
         }
+
         init {
             itemView.setOnClickListener()
         }
 
     }
-
-
     override fun onBindViewHolder(holder: QuizViewHolder, position: Int) {
         val quiz = quizes[position]
 
@@ -68,6 +69,7 @@ class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick:
         holder.iconView.setImageResource(quiz.iconResourceId ?: R.drawable.mathematics)
 
         // Add click listener for the iconView
+
 
 
         holder.itemView.setOnClickListener {
@@ -91,7 +93,6 @@ class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick:
                     QuestionActivity.questions!!.add("Solve for x: 4x - 7 = 5")
 
                     QuestionActivity.options!!.add(OptionQuiz("3.14", "3.15", "3.16", "3.13"))
-
                     QuestionActivity.options!!.add(OptionQuiz("x = 5", "x = 7", "x = 10", "x = 15"))
                     QuestionActivity.options!!.add(OptionQuiz("9", "12", "15", "10"))
                     QuestionActivity.options!!.add(OptionQuiz("5", "7", "25", "√25"))
@@ -114,6 +115,7 @@ class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick:
                     QuestionActivity.correctAnswers!!.add(2)
 
                     openQuestionActivity(quiz, showQuestion = true)
+                  //  context.startActivity(Intent(context,SubCategoryActivity::class.java))
 
                 }
 
@@ -259,14 +261,16 @@ class QuizAdaptor(val context: Context, val quizes: List<Quiz>, val onItemClick:
                 }
             }
         }
+
     }
 
 
     fun openQuestionActivity(quiz: Quiz, showQuestion: Boolean = false) {
-        val intent = Intent(context, QuestionActivity::class.java)
+        val intent = Intent(context, SubCategoryActivity::class.java)
         intent.putExtra("quizTitle", quiz.title ?: "")
         intent.putExtra("quizIcon", quiz.iconResourceId ?: R.drawable.mathematics)
         intent.putExtra("quizType", quiz.quizType)
+        intent.putExtra("checkType",quiz.title )
 
         // Pass a boolean flag to indicate whether to show questions and options
         intent.putExtra("showQuestion", showQuestion)

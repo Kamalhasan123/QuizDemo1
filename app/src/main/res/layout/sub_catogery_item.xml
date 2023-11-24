@@ -3,20 +3,37 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="horizontal"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_marginHorizontal="10dp"
+    android:background="@drawable/buttom"
+    android:padding="10dp">
 
-  <!--  <ImageView
+    <ImageView
         android:id="@+id/subCategoryIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>-->
+        android:layout_width="30dp"
+        android:layout_marginStart="10dp"
+        android:visibility="visible"
+        android:src="@drawable/generalknowledge"
+        android:layout_height="30dp"/>
 
     <TextView
         android:id="@+id/subCategoryTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
+        android:textSize="18sp"
         android:text="Calculus"
+        android:layout_marginStart="30dp"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="5dp"/>
+ <!-- <ImageView
+      android:id="@+id/subCategoryArrow"
+      android:layout_width="30dp"
+      android:visibility="visible"
+      android:elevation="2dp"
+      android:src="@drawable/baseline_arrow_forward_ios_24"
+      android:layout_height="30dp"/>-->
+
 </LinearLayout>
