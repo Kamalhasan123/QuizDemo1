@@ -14,11 +14,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SubCategoryActivity"
+            android:name=".ui.SubCategoryActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.general_knowledge"
-            android:exported="false" />
+
         <activity
             android:name=".ui.ResultActivity"
             android:exported="false" />
